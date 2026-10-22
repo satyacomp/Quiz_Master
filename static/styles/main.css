@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+}
+
+.container{
+    margin: auto;
+    border: 2px solid black;
+}
+
+.panel{
+    margin: auto;
+    border-radius: 20px;
+    width: 80%;
+    margin:auto;
+    height:auto;
+    border: 2px solid blue;
+}
+
+.input_form{
+    border: 1px solid blue;
+    width: 600px;
+    height: 500px;
+    margin:auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.centre{
+    text-align: center;
+    margin:auto;
+    color:rgb(253, 253, 255);
+}
+
+
+.error_msg{
+    color:rgb(150, 5, 10);
+}
+
+table, th, td, caption {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+th, td {
+    background-color: #96D4D4;
+    text-align: left;
+  }
