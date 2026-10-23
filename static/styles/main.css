@@ -31,7 +31,8 @@
 .centre{
     text-align: center;
     margin:auto;
-    color:rgb(253, 253, 255);
+    color:rgb(241, 241, 245);
+    font-weight: bold;
 }
 
 
@@ -39,11 +40,27 @@
     color:rgb(150, 5, 10);
 }
 
-table, th, td, caption {
-    border: 1px solid black;
+table.card-table th,
+table.card-table td,
+table.card-table caption {
+    border: 1px solid rgb(240, 235, 235);
     border-collapse: collapse;
-  }
-th, td {
-    background-color: #96D4D4;
+    font-size: 12px;
     text-align: left;
   }
+
+table.centered-table th,
+table.centered-table td, 
+table.centered-table caption {
+    border: 1px solid rgb(245, 240, 240);
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+  }
+
+
+
+  .my-div {
+      color: rgb(237, 67, 67);              /* Keyword Color */
+      padding: 10px;
+    }
