@@ -1,0 +1,15 @@
+{%extends "admin_navbar.html" %} 
+ {%block admin_dashboard%}
+ <div class="centre">
+    <form action="/signup" method="POST">
+    <p class="h4">Add/Edit Subject</p>
+    <div>
+    <table class="centre">
+        <tr><td><input type="text" class="form-control" name="s_name" placeholder="Subject name"></td></tr>
+        <tr><td><input type="text" class="form-control" name="description" placeholder="Description"></td></tr>
+        <tr><td align="center"><button type="submit" class="btn-solid theme-primary">Save</button> <button type="button" class="btn-solid theme-primary">Cancel</button></td></tr>
+    </table>
+    </div>
+    </form>
+</div>
+{%endblock%}

@@ -36,10 +36,13 @@
             Search
           </button>
         </form>
-        <div class="my-div">Hi, {User}</div>
+        <div class="my-div">Hi, {{user}}</div>
       </div>
     </dialog>
   </div>
 </nav>
+{% block user_dashboard %}
+<!-- insert block here-->
+ {% endblock %}
 </body>
 </html>

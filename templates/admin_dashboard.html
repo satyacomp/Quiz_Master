@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/styles/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">   
-  <title>Admin Dashboard</title>
-</head>
-<body>
-  <p class="h4 centre panel">Welcome to Quiz Master</p>
-  <nav class="navbar md:navbar-expand bg-1">
-  <div class="container-fluid">
-    <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
-      <div class="drawer-body mb-2 md:mb-0">
-        <ul class="nav navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="btn-text theme-primary" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn-text theme-primary" href="#">Quizzes</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn-text theme-primary" href="#">Users</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn-text theme-primary" href="#">Summary</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn-text theme-primary" href="#">Logout</a>
-          </li>
-        </ul>
-        <form class="hstack gap-2" role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn-solid theme-primary" type="submit">
-            Search
-          </button>
-        </form>
-        <div class="my-div">Hi, {Admin}</div>
-      </div>
-    </dialog>
-  </div>
-</nav>
+{%extends "admin_navbar.html" %} 
 <!-- Subjects/quizzes cards-->
+ {%block admin_dashboard%}
  <div class="card" style="max-width: 320px;">
   <div class="card-body">
     <h4 class="card-title">Physics</h4>
@@ -51,9 +10,9 @@
       <tr><td>Centre of mass</td><td>10</td><td>Edit/Delete</td></tr>
       <tr><td>Electro Static force</td><td>15</td><td>Edit/Delete</td></tr>
     </table>
-    <a href="#">Card link</a>
+    <a href="/add_chapter" class="btn-outline theme-primary">+ Chapter</a>
   </div>
 </div>
+<div class="centre"><a href="/add_subject" class="btn-outline theme-success">+ Add Subject</a></div>
 <!-- Subjects/quizzes cards-->
-</body>
-</html>
+{%endblock%}
