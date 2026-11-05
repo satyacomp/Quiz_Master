@@ -29,10 +29,9 @@
 }
 
 .centre{
-    text-align: center;
-    margin:auto;
-    color:rgb(241, 241, 245);
-    font-weight: bold;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
 }
 
 
@@ -58,9 +57,12 @@ table.centered-table caption {
     text-align: left;
   }
 
-
-
-  .my-div {
+.my-div {
       color: rgb(237, 67, 67);              /* Keyword Color */
       padding: 10px;
     }
+
+.tab {
+    display: inline-block;
+    margin-left: 10px; /* Adjust the size of the tab space here */
+  }

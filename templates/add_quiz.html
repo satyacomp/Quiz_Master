@@ -1,0 +1,26 @@
+{%extends "admin_navbar.html" %} 
+ {%block admin_dashboard%}
+ <div class="centre">
+    <form action="/signup" method="POST">
+    <p class="h4">New Quiz</p>
+    <div> 
+    <table class="centre">
+        <tr><td>
+           <div class="form-field">
+                <select class="form-control" name="cid">
+                    <option>Choose chapter id</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </td></tr>
+        <tr><td><input type="text" class="form-control" name="s_name" placeholder="Chapter name" readonly></td></tr>
+        <tr><td><input type="date" class="form-control" name="date" placeholder="Date"></td></tr>
+        <tr><td><input type="time" class="form-control" name="duration" placeholder="mm:ss"></td></tr>
+        <tr><td align="center"><button type="submit" class="btn-solid theme-primary">Save</button>  <a href="/admin" class="btn-solid theme-primary mx-auto tab">Close</a></td></tr>
+    </table>
+    </div>
+    </form>
+</div>
+{%endblock%}

@@ -1,10 +1,13 @@
 from flask import Flask,render_template
+from backend.models import *
 
 app=None
 
 def setup_app():
     app=Flask("__name__")
-    #Other backend settings
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///quiz_data.sqlite3"
+    app.app_context().push()  # push manually so that direct access to the app
+    db.init_app(app)
     print("Quiz Master app is intiated...")
     return app
 

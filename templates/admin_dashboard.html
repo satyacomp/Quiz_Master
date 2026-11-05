@@ -10,9 +10,9 @@
       <tr><td>Centre of mass</td><td>10</td><td>Edit/Delete</td></tr>
       <tr><td>Electro Static force</td><td>15</td><td>Edit/Delete</td></tr>
     </table>
-    <a href="/add_chapter" class="btn-outline theme-primary">+ Chapter</a>
+    <a href="/chapter/add" class="btn-outline theme-primary">+ Chapter</a>
   </div>
 </div>
-<div class="centre"><a href="/add_subject" class="btn-outline theme-success">+ Add Subject</a></div>
+<div class="centre"><a href="{{ url_for('subject',user_id=user.id) }}" class="btn-outline theme-success">+ Add Subject</a></div>
 <!-- Subjects/quizzes cards-->
 {%endblock%}
