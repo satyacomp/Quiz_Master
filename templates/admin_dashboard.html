@@ -1,18 +1,29 @@
 {%extends "admin_navbar.html" %} 
 <!-- Subjects/quizzes cards-->
  {%block admin_dashboard%}
- <div class="card" style="max-width: 320px;">
-  <div class="card-body">
-    <h4 class="card-title">Physics</h4>
-    <p class="card-subtitle fg-3">Covers 12th class</p>
-    <table class="card-table">
-      <tr><th>Chapter</th><th>No.of Questions</th><th>Actions</th></tr>
-      <tr><td>Centre of mass</td><td>10</td><td>Edit/Delete</td></tr>
-      <tr><td>Electro Static force</td><td>15</td><td>Edit/Delete</td></tr>
+ {% if subjects %}
+ <div class="grid text-center grid-auto-flow-row" style="--bs-columns: 3;">
+ {% for subject in subjects %}
+    <div class="card" style="max-width: 320px;">
+    <div class="card-body">
+    <h4 class="card-title">{{subject.name}}</h4>
+    <p class="card-subtitle fg-3">{{subject.description}}</p>
+      <table class="card-table">
+        <tr><th>Title</th><th>Actions</th></tr>
+        {% if subject.chapters %}
+          {% for chapter in subject.chapters %}
+            <tr><td>{{chapter.title}}</td><td><a href="#">Edit</a>/<a href="{{url_for('delete_chapter',user_id=user.id,chapter_id=chapter.id)}}">Delete</a></td></tr>
+          {%endfor%}
+        {% else %}
+        <tr><td colspan="2">No chapters existed for this subject</td></tr>
+        {% endif %}
     </table>
-    <a href="/chapter/add" class="btn-outline theme-primary">+ Chapter</a>
-  </div>
+    <a href="{{url_for('chapter',user_id=user.id,subject_id=subject.id)}}" class="btn-outline theme-primary">+ Chapter</a>
+    </div>
+    </div>
+{% endfor %}
 </div>
+{% endif %}
 <div class="centre"><a href="{{ url_for('subject',user_id=user.id) }}" class="btn-outline theme-success">+ Add Subject</a></div>
 <!-- Subjects/quizzes cards-->
 {%endblock%}

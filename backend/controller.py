@@ -51,7 +51,8 @@ def user_dashboard(user_id):
 @app.route("/admin/<int:user_id>")
 def admin_dashboard(user_id):
     user=User.query.get_or_404(user_id)
-    return render_template("admin_dashboard.html",user=user)
+    subjects=Subject.query.all()
+    return render_template("admin_dashboard.html",user=user,subjects=subjects)
 
 @app.route("/subject/add/<int:user_id>",methods=["GET","POST"])
 def subject(user_id):
@@ -67,9 +68,27 @@ def subject(user_id):
     return render_template("add_subject.html",user=user)
 
 
-@app.route("/chapter/add",methods=["GET","POST"])
-def chapter():
-    return render_template("add_chapter.html")
+@app.route("/chapter/add/<int:user_id>/<int:subject_id>",methods=["GET","POST"])
+def chapter(user_id,subject_id):
+    subject=Subject.query.get_or_404(subject_id)
+    user=User.query.get_or_404(user_id)
+    if request.method=="POST":
+        title=request.form.get("title")
+        description=request.form.get("description")
+        chapter=Chapter(title=title,description=description,subject_id=subject.id)
+        db.session.add(chapter)
+        db.session.commit()
+        return redirect(url_for('admin_dashboard',user_id=user.id))
+    
+    return render_template("add_chapter.html",user=user,subject=subject)
+
+@app.route("/chapter/delete/<int:user_id>/<int:chapter_id>",methods=["GET","POST"])
+def delete_chapter(user_id,chapter_id):
+    user=User.query.get_or_404(user_id)
+    chapter=Chapter.query.get_or_404(chapter_id)
+    db.session.delete(chapter)
+    db.session.commit()
+    return redirect(url_for('admin_dashboard',user_id=user.id))
 
 
 @app.route("/quiz/add",methods=["GET","POST"])
